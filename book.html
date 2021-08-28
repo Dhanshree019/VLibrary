@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <title>V Library</title>
+  <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+     <div class="full-page">
+        <div class="navbar">
+            <div>
+                
+        <h1>VIRTUAL LIBRARY<span></span></h1>
+            </div>
+            <nav>
+                <ul id='MenuItems'>
+                    <li><a href='upload.html'>Home</a></li>
+                    <li><a href='book.html'>Books</a></li>
+                    <li><a href="login.html"> <button class='loginbtn' onclick="document.getElementById('login-form').style.display='block'" style="width:auto;">Login</a></button></li>
+                </ul>
+            </nav>
+        </div>
+        
+    
+
+  </nav>
+  <div class="container">
+    <div id="slide-left-container">
+      <div class="slide-left">
+      </div>
+    </div>
+    <div id="cards-container">
+      <div class="cards">
+        <div class="card">
+          <img src="fairy.png" alt="Animals" style="width:100%">
+          <div class="container">
+            <h4>
+              <b><a href="https://www.publicdomainpictures.net/pictures/320000/velka/background-image.png">Fairy Tales</a> </b>
+            </h4>
+          </div>
+        </div>
+        <div class="card">
+          <img src="horror.png" alt="Nature" style="width:100%">
+          <div class="container">
+            <h4>
+              <b ><a href="https://www.publicdomainpictures.net/pictures/320000/velka/background-image.png">Horror Books</a></b>
+            </h4>
+          </div>
+        </div>
+        <div class="card">
+          <img src="ad.png" alt="Architecture" style="width:100%">
+          <div class="container">
+            <h4>
+              <b><a href="https://www.publicdomainpictures.net/pictures/320000/velka/background-image.png">Advencture Books</a></b>
+            </h4>
+          </div>
+        </div>
+        <div class="card">
+          <img src="sci.png" alt="Technology" style="width:100%">
+          <div class="container">
+            <h4>
+              <b><a href="https://www.publicdomainpictures.net/pictures/320000/velka/background-image.png">Science Fiction Books</a></b>
+            </h4>
+          </div>
+        </div>
+        <div class="card">
+          <img src="triller.png" alt="People" style="width:100%">
+          <div class="container">
+            <h4>
+              <b><a href="https://www.publicdomainpictures.net/pictures/320000/velka/background-image.png">Thriller Books</a></b>
+            </h4>
+          </div>
+        </div>
+        <div class="card">
+          <img src="fantasy.png" alt="Animals" style="width:100%">
+          <div class="container">
+            <h4>
+              <b><a href="https://www.publicdomainpictures.net/pictures/320000/velka/background-image.png">Fantasy Books</a></b>
+            </h4>
+          </div>
+        </div>
+        <div class="card">
+          <img src="lit.png" alt="Nature" style="width:100%">
+          <div class="container">
+            <h4>
+              <b><a href="https://www.publicdomainpictures.net/pictures/320000/velka/background-image.png">Litrature Books</a></b>
+            </h4>
+          </div>
+        </div>
+        <div class="card">
+          <img src="crime.png" alt="Architecture" style="width:100%">
+          <div class="container">
+            <h4>
+              <b><a href="https://www.publicdomainpictures.net/pictures/320000/velka/background-image.png">Crime Books</a></b>
+            </h4>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+
+    <div id="slide-right-container">
+      <div class="slide-right">
+      </div>
+    </div>
+
+  </div>
+ 
+
+  
+
+<div class="main">
+
+  <h1>Different Educational Books</h1>
+   <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+
+  <ul class="cards1">
+    <li class="cards_item">
+      <div class="card1">
+        <div class="card_image"><img src="1.png"></div>
+        <div class="card_content">
+          <h2 class="card_title">Activity Book</h2>
+          <p class="card_text">Best kids activity books that are fun and educational</p>
+          <button class="btn card_btn">Download from here</button>
+        </div>
+      </div>
+    </li>
+  
+    <li class="cards_item">
+      <div class="card1">
+        <div class="card_image"><img src="https://picsum.photos/500/300/?image=11"></div>
+        <div class="card_content">
+          <h2 class="card_title">Educational Book</h2>
+          <p class="card_text">The Best Educational Books And Activities For Kids</p>
+          <button class="btn card_btn">Download from here</button>
+        </div>
+      </div>
+    </li>
+
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+
+  <script type="text/javascript">
+    /**
+ * @description Change Home page slider's arrows active status
+ */
+function updateSliderArrowsStatus(
+  cardsContainer,
+  containerWidth,
+  cardCount,
+  cardWidth
+) {
+  if (
+    $(cardsContainer).scrollLeft() + containerWidth <
+    cardCount * cardWidth + 15
+  ) {
+    $("#slide-right-container").addClass("active");
+  } else {
+    $("#slide-right-container").removeClass("active");
+  }
+  if ($(cardsContainer).scrollLeft() > 0) {
+    $("#slide-left-container").addClass("active");
+  } else {
+    $("#slide-left-container").removeClass("active");
+  }
+}
+$(function() {
+  // Scroll products' slider left/right
+  let div = $("#cards-container");
+  let cardCount = $(div)
+    .find(".cards")
+    .children(".card").length;
+  let speed = 1000;
+  let containerWidth = $(".container").width();
+  let cardWidth = 250;
+
+  updateSliderArrowsStatus(div, containerWidth, cardCount, cardWidth);
+
+  //Remove scrollbars
+  $("#slide-right-container").click(function(e) {
+    if ($(div).scrollLeft() + containerWidth < cardCount * cardWidth) {
+      $(div).animate(
+        {
+          scrollLeft: $(div).scrollLeft() + cardWidth
+        },
+        {
+          duration: speed,
+          complete: function() {
+            setTimeout(
+              updateSliderArrowsStatus(
+                div,
+                containerWidth,
+                cardCount,
+                cardWidth
+              ),
+              1005
+            );
+          }
+        }
+      );
+    }
+    updateSliderArrowsStatus(div, containerWidth, cardCount, cardWidth);
+  });
+  $("#slide-left-container").click(function(e) {
+    if ($(div).scrollLeft() + containerWidth > containerWidth) {
+      $(div).animate(
+        {
+          scrollLeft: "-=" + cardWidth
+        },
+        {
+          duration: speed,
+          complete: function() {
+            setTimeout(
+              updateSliderArrowsStatus(
+                div,
+                containerWidth,
+                cardCount,
+                cardWidth
+              ),
+              1005
+            );
+          }
+        }
+      );
+    }
+    updateSliderArrowsStatus(div, containerWidth, cardCount, cardWidth);
+  });
+
+  // If resize action ocurred then update the container width value
+  $(window).resize(function() {
+    try {
+      containerWidth = $("#cards-container").width();
+      updateSliderArrowsStatus(div, containerWidth, cardCount, cardWidth);
+    } catch (error) {
+      console.log(
+        `Error occured while trying to get updated slider container width: 
+            ${error}`
+      );
+    }
+  });
+});
+function myFunction() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("cards1");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+
+  </script>
+
+</body>
+
+</html>
